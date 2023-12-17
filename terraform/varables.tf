@@ -25,3 +25,13 @@ variable "region" {
   description = "region"
   default     = "us-east-1"
 }
+
+variable "aws_account_id" {
+  description = "Target AWS Account ID"
+  type        = string
+}
+
+variable "repository_name" {
+  description = "Name of the repo"
+  type        = string
+}
