@@ -5,11 +5,6 @@ resource "aws_s3_bucket" "web_bucket" {
   }
 }
 
-resource "aws_s3_bucket_acl" "b_acl" {
-  bucket = aws_s3_bucket.web_bucket.id
-  acl    = "private"
-}
-
 resource "aws_s3_bucket_website_configuration" "web_bucket_website" {
   bucket = aws_s3_bucket.web_bucket.id
 

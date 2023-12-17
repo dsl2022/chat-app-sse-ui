@@ -7,7 +7,7 @@ resource "aws_s3_bucket_policy" "web_bucket_policy" {
       {
         Effect    = "Allow",
         Principal = "*",
-        Action    = "s3:GetObject",
+        Action    = "s3:*",
         Resource  = [
           "${aws_s3_bucket.web_bucket.arn}/*"
         ]
