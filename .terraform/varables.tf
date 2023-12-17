@@ -25,8 +25,3 @@ variable "region" {
   description = "region"
   default     = "us-east-1"
 }
-
-variable "static_content_directory" {
-  type        = string
-  description = "region"
-}

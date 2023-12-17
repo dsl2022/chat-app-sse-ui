@@ -27,10 +27,10 @@ resource "aws_s3_bucket_website_configuration" "web_bucket_website" {
   # }
 }
 
-locals {
-  upload_directory = "../${var.static_content_directory}"
-  app_fileset      = fileset(local.upload_directory, "**/*.*")
-}
+# locals {
+#   upload_directory = "../${var.static_content_directory}"
+#   app_fileset      = fileset(local.upload_directory, "**/*.*")
+# }
 
 resource "aws_cloudfront_distribution" "web_distribution" {
   enabled             = true
