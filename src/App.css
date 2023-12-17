@@ -28,18 +28,6 @@
   color: #61dafb;
 }
 
-.message-container {
-  text-align: left;
-  width: 80%; /* Adjust width as needed */
-  margin: 0 auto; /* Center the container */
-  word-wrap: break-word; /* Ensure long text wraps */
-}
-
-.message-container div {
-  margin-bottom: 10px; /* Spacing between messages */
-}
-
-
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
