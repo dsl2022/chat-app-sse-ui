@@ -1,4 +1,4 @@
-import { FC,MutableRefObject,useState,KeyboardEvent } from 'react';
+import { FC,MutableRefObject } from 'react';
 import {  IconSend } from '@tabler/icons-react';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 }
 
 export const ChatInput: FC<Props> = ({textareaRef,userInput,handleSendMessage,handleInputChange }) => {
-    const [isTyping, setIsTyping] = useState<boolean>(false);
+    // const [isTyping, setIsTyping] = useState<boolean>(false);
      
   return (
     <div className="absolute bottom-0 left-0 w-full border-transparent bg-gradient-to-b from-transparent via-white to-white pt-6 dark:border-white/20 dark:via-[#343541] dark:to-[#343541] md:pt-2">
@@ -31,8 +31,8 @@ export const ChatInput: FC<Props> = ({textareaRef,userInput,handleSendMessage,ha
             }
             value={userInput}
             rows={1}
-            onCompositionStart={() => setIsTyping(true)}
-            onCompositionEnd={() => setIsTyping(false)}
+            // onCompositionStart={() => setIsTyping(true)}
+            // onCompositionEnd={() => setIsTyping(false)}
             onChange={handleInputChange}
           />
           <button

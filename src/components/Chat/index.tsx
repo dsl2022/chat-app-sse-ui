@@ -5,13 +5,16 @@ import {
     useEffect,
     useRef,
     useState,
-    ChangeEvent
+    ChangeEvent,
+    SetStateAction,
+    Dispatch
   } from 'react';
 import { ChatInput } from './ChatInput';
 import { ChatMessage } from './ChatMessage';
   interface Props {
     loading: boolean;
     apiKey: string;
+    setLightMode:Dispatch<SetStateAction<"dark" | "light">>;
   }
   export const Chat: FC<Props> = memo(({apiKey})=>{
     const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -31,7 +34,7 @@ import { ChatMessage } from './ChatMessage';
   const sendMessageToServer = async (message: string) => {
     try {
       setMessages(prevMessages => [...prevMessages, { user: 'You', text: message }]);
-      const response = await fetch('http://chat-app-load-balancer-381258406.us-east-1.elb.amazonaws.com/send-message', {
+      await fetch('http://chat-app-load-balancer-381258406.us-east-1.elb.amazonaws.com/send-message', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +59,7 @@ import { ChatMessage } from './ChatMessage';
           if (words.length) {
             displayedMessage += (displayedMessage ? ' ' : '') + words.shift();
             setCurrentMessage(displayedMessage);
-            setTimeout(renderMessage, 200); // Adjust time as needed
+            setTimeout(renderMessage, 150); // Adjust time as needed
           } else {
             setMessages(prevMessages => [...prevMessages, newMessage]);
             setCurrentMessage("");

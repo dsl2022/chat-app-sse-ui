@@ -1,19 +1,12 @@
 import { Message } from '@/types/chat';
 import { IconCheck, IconCopy, IconEdit, IconUser, IconRobot } from '@tabler/icons-react';
-// import { useTranslation } from 'next-i18next';
 import { FC, memo, useEffect, useRef, useState } from 'react';
-//import rehypeMathjax from 'rehype-mathjax';
+// import rehypeMathjax from 'rehype-mathjax';
 import remarkGfm from 'remark-gfm';
 import remarkMath from 'remark-math';
 import { CodeBlock } from '../Markdown/CodeBlock';
 import { MemoizedReactMarkdown } from '../Markdown/MemoizedReactMarkdown';
-interface CodeComponentProps extends React.HTMLAttributes<HTMLElement> {
-  node: any;  // Adjust the type according to your data structure
-  inline?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  // ... any other custom props
-}
+
 interface Props {
   message: Message;
   messageIndex: number;
@@ -21,7 +14,6 @@ interface Props {
 
 export const ChatMessage: FC<Props> = memo(
   ({ message }) => {
-    console.log({message})
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isTyping, setIsTyping] = useState<boolean>(false);
     const [messageContent, setMessageContent] = useState(message.text);
