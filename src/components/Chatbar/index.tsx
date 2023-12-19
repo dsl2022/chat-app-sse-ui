@@ -1,8 +1,8 @@
 function SideBar(){
     
-    return <>
+	return <>
     
-    </>
+	</>;
 }
 
-export default SideBar
+export default SideBar;

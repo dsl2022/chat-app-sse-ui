@@ -1,11 +1,11 @@
-import { OpenAIModel } from './openai';
+import { OpenAIModel } from "./openai";
 
 export interface Message {
   user: string;
   text: string;
   }
 
-export type Role = 'assistant' | 'user';
+export type Role = "assistant" | "user";
 
 export interface Conversation {
     id: string;
