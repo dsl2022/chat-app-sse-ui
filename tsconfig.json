@@ -18,7 +18,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx",
+    "jsx": "preserve",
     "paths": {
       "@/*": ["./src/*"]
     }
@@ -26,5 +26,7 @@
   "include": [
     "src"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }
