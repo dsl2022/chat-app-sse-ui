@@ -20,7 +20,8 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "react"
+        "react",
+        "import"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
