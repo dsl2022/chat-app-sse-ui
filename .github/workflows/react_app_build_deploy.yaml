@@ -1,0 +1,43 @@
+name: Build and Deploy React App
+
+on:
+  workflow_dispatch:
+    inputs:
+      aws_account_id:
+        description: AWS Account ID
+        type: string
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    permissions:
+      id-token: write
+      contents: read
+
+    steps:
+    - name: Check out repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '14' # specify the Node.js version
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build React app
+      run: npm run build
+
+
+    - name: Configure AWS Credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        role-to-assume: arn:aws:iam::${{ inputs.aws_account_id }}:role/github-actions-dsl
+        aws-region: us-east-1 # replace with your AWS region
+    - name: Clear S3 bucket
+      run: aws s3 rm s3://chat-app-sse-ui --recursive
+
+    - name: Deploy to S3
+      run: aws s3 cp ./build/ s3://chat-app-sse-ui/ --recursive
+    # ... Clear S3 bucket and deploy steps ...
